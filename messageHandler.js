@@ -13,7 +13,16 @@ class MessageHandler{
     }
     async Handle(message, channel, tags)
     {
-
+        let command = message.slice(0, 3);
+        let link = message.slice(3);
+        if(command == "!sr")
+        {
+            let msg = {
+                url: link,
+                channel:  channel
+            }
+            this.io.emit('newVideo', msg);
+        }
     }
 }
 

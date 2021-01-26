@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Bot de musica</title>
 </head>
 <body>
-    <iframe width="1841" height="840" src="https://www.youtube.com/embed/l-XJcV_70DY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <header>
+        <nav>
+            Prueba de navbar
+        </nav>
+    </header>
+    <main>
+        <div class="contenedor-reproductor-lista">
+            <div class="marcoVideo">
+                <iframe width="700" height="450" src="https://www.youtube.com/embed/l-XJcV_70DY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            
+            </div>
+    
+            <div class="marcoListaReproduccion" id="marcoListaReproduccion">
+
+            </div>
+        </div>
+    </main>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Yusei Magic', sans-serif;
+}
+
+// Variables
+$color-medio: #ffb74d;
+$color-oscuro: #b28035;
+$color-claro: #ffc570;
+
+.marcoVideo{
+    border: 5px solid black;
+    height: 460px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+// Links de fila
+.contenedor-reproductor-lista{
+    display: flex;
+    justify-content: center;
+}
+.marcoListaReproduccion{
+    border: 2px solid black;
+    background-color: $color-claro;    
+    width: 30vw;
+}
+.linkReproduccion{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cruz,
+.alert{
+    margin-left: 10px;
+    height: 16px;
+}
+.cruz:hover,
+.alert:hover{
+    cursor: pointer;
+}
+.linkReproduccion:nth-of-type(2n)
+{
+    background-color: $color-oscuro;
+}
+
+
