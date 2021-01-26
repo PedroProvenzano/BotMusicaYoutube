@@ -1,6 +1,6 @@
 var socket = io();
 
-let channel = 'mrklus';
+let channel = '#mrklus';
 // DOM
 const marcoListaReproduccion = document.getElementById("marcoListaReproduccion");
 
