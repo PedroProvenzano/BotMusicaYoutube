@@ -79,6 +79,7 @@ function getNextOne(array)
       newArray.push(i);
     }
   }
+  arrayQueue = newArray;
   let DomList = document.getElementsByClassName("linkReproduccion");
   DomList[0].remove();
   return nextOne;
