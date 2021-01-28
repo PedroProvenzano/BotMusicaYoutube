@@ -19,6 +19,10 @@ app.get('/', (req, res) => {
   
 io.on('connection', (socket) => {
     console.log('Usuario conectado');
+
+    socket.on('newOrder', (msg) => {
+        connection.ListenHandleIo(msg);
+    });
 });
   
 http.listen(port, () => {

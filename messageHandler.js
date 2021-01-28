@@ -1,4 +1,8 @@
 require('dotenv/config');
+
+let url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=";
+
+
 class MessageHandler{
     constructor(client, io){
         this.io = io;
@@ -9,7 +13,19 @@ class MessageHandler{
         
     async HandleDataBase(msg)
     {
-
+        if(msg.order == "getTitle")
+        {
+            fetch(url + msg.url.slice(32,43) + "&key=" + process.env.APIKEY)
+        .then(res => res.json())
+        .then((res) => {
+            let newMsg = {
+                channel: msg.channel,
+                title: res.items[0].snippet.title,
+                url: url
+            }
+            this.io.emit('TitleGot', newMsg);
+        });
+        }
     }
     async Handle(message, channel, tags)
     {
