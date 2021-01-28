@@ -14,7 +14,7 @@ class MessageHandler{
     async Handle(message, channel, tags)
     {
         let command = message.slice(0, 3);
-        let link = message.slice(3);
+        let link = message.slice(4);
         if(command == "-sr")
         {
             let msg = {

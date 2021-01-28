@@ -11,7 +11,7 @@ socket.on('newVideo', async (msg) => {
     if(msg.channel == channel){
         let contenedorLink = document.createElement('div');
         contenedorLink.setAttribute("class", "linkReproduccion");
-        fetch(url + msg.url.slice(33,44) + "&key=AIzaSyDbMgPlyRKiE-7nVK1aIsnWFhZLBt7JaMY")
+        fetch(url + msg.url.slice(32,43) + "&key=AIzaSyDbMgPlyRKiE-7nVK1aIsnWFhZLBt7JaMY")
         .then(res => res.json())
         .then((res) => {
           contenedorLink.innerHTML = `<p>${res.items[0].snippet.title}</p>
@@ -38,7 +38,7 @@ var tag = document.createElement('script');
         player = new YT.Player('player', {
           height: '450',
           width: '700',
-          videoId: 'l-XJcV_70DY',
+          videoId: 'doOXUOlalmU',
           events: {
             'onStateChange': onPlayerStateChange
           }
@@ -63,7 +63,7 @@ var tag = document.createElement('script');
 
 function getAndPostVideo(link)
 {
-  let urlID = link.slice(33,44);
+  let urlID = link.slice(32,43);
   console.log("Ejecutando video agregado");
   player.loadVideoByUrl(urlID, 0, "default");
 }
