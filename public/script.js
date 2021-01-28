@@ -11,14 +11,13 @@ socket.on('newVideo', async (msg) => {
     if(msg.channel == channel){
         let contenedorLink = document.createElement('div');
         contenedorLink.setAttribute("class", "linkReproduccion");
-        fetch(url + msg.url.slice(32,43) + "&key=AIzaSyDbMgPlyRKiE-7nVK1aIsnWFhZLBt7JaMY")
-        .then(res => res.json)
+        fetch(url + msg.url.slice(33,44) + "&key=AIzaSyDbMgPlyRKiE-7nVK1aIsnWFhZLBt7JaMY")
+        .then(res => res.json())
         .then((res) => {
           contenedorLink.innerHTML = `<p>${res.items[0].snippet.title}</p>
           <img src="./assets/equis.png" alt="cruz" id="boton-link-cruz" class="cruz">
           <img src="./assets/alert.png" alt="alerta" id="boton-link-alerta" class="alert">`;
           contenedorLink.addEventListener('click', () => {
-            console.log(msg.url);
             getAndPostVideo(msg.url);
           });
           arrayQueue.push(msg.url);
@@ -64,7 +63,7 @@ var tag = document.createElement('script');
 
 function getAndPostVideo(link)
 {
-  let urlID = link.slice(32,43);
+  let urlID = link.slice(33,44);
   console.log("Ejecutando video agregado");
   player.loadVideoByUrl(urlID, 0, "default");
 }
