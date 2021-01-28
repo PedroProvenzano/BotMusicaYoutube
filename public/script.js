@@ -35,7 +35,6 @@ var tag = document.createElement('script');
           width: '700',
           videoId: 'l-XJcV_70DY',
           events: {
-            'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
           }
         });
