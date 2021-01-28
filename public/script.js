@@ -2,6 +2,7 @@ var socket = io();
 
 let channel = '#mrklus';
 let arrayQueue = [];
+const regex = / /gi; 
 // DOM
 const marcoListaReproduccion = document.getElementById("marcoListaReproduccion");
 
@@ -18,13 +19,17 @@ socket.on('newVideo', async (msg) => {
 socket.on('TitleGot', async (msg) => {
   if(msg.channel == channel)
   {
+    let newID = msg.title.replace(regex,"-");
     let contenedorLink = document.createElement('div');
     contenedorLink.setAttribute("class", "linkReproduccion");
+    contenedorLink.setAttribute('id', newID);
     contenedorLink.innerHTML = `<p>${msg.title}</p>
     <img src="./assets/equis.png" alt="cruz" id="boton-link-cruz" class="cruz">
     <img src="./assets/alert.png" alt="alerta" id="boton-link-alerta" class="alert">`;
     contenedorLink.addEventListener('click', () => {
       getAndPostVideo(msg.url);
+      let toDelete = document.getElementById(newID);
+      toDelete.remove();
     });
       arrayQueue.push(msg.url);
       marcoListaReproduccion.appendChild(contenedorLink);
