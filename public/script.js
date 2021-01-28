@@ -65,7 +65,7 @@ function getAndPostVideo(link)
 {
   let urlID = link.slice(32,43);
   console.log("Ejecutando video agregado");
-  player.loadVideoByUrl(urlID, 0, "default");
+  player.loadVideoById(urlID, 0, "default");
 }
 
 function getNextOne(array)
