@@ -1,5 +1,5 @@
 require('dotenv/config');
-
+const fetch = require('node-fetch');
 let url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=";
 
 
@@ -15,7 +15,7 @@ class MessageHandler{
     {
         if(msg.order == "getTitle")
         {
-            fetch(url + msg.url.slice(32,43) + "&key=" + process.env.APIKEY)
+        fetch(url + msg.url.slice(32,43) + "&key=" + process.env.APIKEY)
         .then(res => res.json())
         .then((res) => {
             let newMsg = {
