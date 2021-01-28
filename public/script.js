@@ -1,4 +1,3 @@
-
 var socket = io();
 
 let channel = '#mrklus';
@@ -12,7 +11,7 @@ socket.on('newVideo', async (msg) => {
     if(msg.channel == channel){
         let contenedorLink = document.createElement('div');
         contenedorLink.setAttribute("class", "linkReproduccion");
-        fetch(url + msg.url.slice(32,43) + "&key=" + process.env.APIKEY)
+        fetch(url + msg.url.slice(32,43) + "&key=AIzaSyDbMgPlyRKiE-7nVK1aIsnWFhZLBt7JaMY")
         .then(res => res.json)
         .then((res) => {
           contenedorLink.innerHTML = `<p>${res.items[0].snippet.title}</p>
