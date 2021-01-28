@@ -70,4 +70,8 @@ main {
 .linkReproduccion:nth-of-type(2n) {
   background-color: #b28035;
 }
+
+.linkReproduccion:hover {
+  cursor: pointer;
+}
 /*# sourceMappingURL=style.css.map */

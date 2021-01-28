@@ -3,21 +3,28 @@ var socket = io();
 
 let channel = '#mrklus';
 let arrayQueue = [];
+
+let url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=";
 // DOM
 const marcoListaReproduccion = document.getElementById("marcoListaReproduccion");
 
-socket.on('newVideo', msg => {
+socket.on('newVideo', async (msg) => {
     if(msg.channel == channel){
         let contenedorLink = document.createElement('div');
         contenedorLink.setAttribute("class", "linkReproduccion");
-        contenedorLink.innerHTML = `<p>${msg.url}</p>
-        <img src="./assets/equis.png" alt="cruz" id="boton-link-cruz" class="cruz">
-        <img src="./assets/alert.png" alt="alerta" id="boton-link-alerta" class="alert">`;
-        contenedorLink.addEventListener('click', () => {
-          getAndPostVideo(msg.url);
+        fetch(url + msg.url.slice(32,43) + "&key=" + process.env.APIKEY)
+        .then(res => res.json)
+        .then((res) => {
+          contenedorLink.innerHTML = `<p>${res.items[0].snippet.title}</p>
+          <img src="./assets/equis.png" alt="cruz" id="boton-link-cruz" class="cruz">
+          <img src="./assets/alert.png" alt="alerta" id="boton-link-alerta" class="alert">`;
+          contenedorLink.addEventListener('click', () => {
+            console.log(msg.url);
+            getAndPostVideo(msg.url);
+          });
+          arrayQueue.push(msg.url);
+          marcoListaReproduccion.appendChild(contenedorLink);
         });
-        arrayQueue.push(msg.url);
-        marcoListaReproduccion.appendChild(contenedorLink);
     }
 });
 
