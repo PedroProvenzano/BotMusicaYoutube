@@ -21,7 +21,7 @@ class MessageHandler{
             let newMsg = {
                 channel: msg.channel,
                 title: res.items[0].snippet.title,
-                url: url
+                url: msg.url
             }
             this.io.emit('TitleGot', newMsg);
         });
