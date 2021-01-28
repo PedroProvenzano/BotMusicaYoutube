@@ -30,6 +30,15 @@ socket.on('TitleGot', async (msg) => {
       getAndPostVideo(msg.url);
       let toDelete = document.getElementById(newID);
       toDelete.remove();
+      let newArray = [];
+      for(let i of arrayQueue)
+      {
+        if(i != msg.url)
+        {
+          newArray.push(i);
+        }
+      }
+      arrayQueue = newArray;
     });
       arrayQueue.push(msg.url);
       marcoListaReproduccion.appendChild(contenedorLink);
